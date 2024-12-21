@@ -2,6 +2,7 @@ import s from './ContactForm.module.css';
 import React from 'react';
 import {Formik, Field, Form } from 'formik';
 import {useId} from "react";
+import * as Yup from 'yup';
 
 const initialValues={
     Name: '',
@@ -23,6 +24,22 @@ const  ContactForm = ({ addContact }) => {
        });
        actions.resetForm();
    };
+
+   const onlyLetters = /^[A-Za-zА-Яа-яЄєІіЇїҐґ]+$/;
+   const registerSchema = Yup.object().shape({
+    username: Yup.string()
+      .min(3, 'Мінімум 3 символи')
+      .max(20, 'Максимум 20 символів')
+      .matches(onlyLetters, 'Це поле може містити тільки літери')
+      .required("Це поле обов'язкове!"),
+      number: Yup.number()
+      .min(7, 'Мінімум 7 символів')
+      .max(13, 'Максимуму 13 символів')
+      .positive(),
+  });
+    
+  
+
 return (
     <div className={s.formWrapper}>
     <Formik initialValues={initialValues}

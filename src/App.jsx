@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import ContactForm from './Components/ContactForm/ContactForm';
 import ContactList from './Components/ContactList/ContactList';
-
 import SearchBox from './Components/SearchBox/SearchBox'
+
 
 function App() {
   const [contacts, setContacts] = useState(
