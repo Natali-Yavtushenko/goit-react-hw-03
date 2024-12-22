@@ -43,7 +43,7 @@ const  ContactForm = ({ addContact }) => {
 return (
     <div className={s.formWrapper}>
     <Formik initialValues={initialValues}
-    
+    validationSchema={registerSchema}
     onSubmit={handleSubmit}
   >
   <Form className={s.form}>
