@@ -27,12 +27,12 @@ const  ContactForm = ({ addContact }) => {
 
    const onlyLetters = /^[A-Za-zА-Яа-яЄєІіЇїҐґ]+$/;
    const registerSchema = Yup.object().shape({
-    username: Yup.string()
+       Name: Yup.string()
       .min(3, 'Мінімум 3 символи')
       .max(20, 'Максимум 20 символів')
       .matches(onlyLetters, 'Це поле може містити тільки літери')
       .required("Це поле обов'язкове!"),
-      number: Yup.number()
+      Number: Yup.number()
       .min(7, 'Мінімум 7 символів')
       .max(13, 'Максимуму 13 символів')
       .positive(),
@@ -56,10 +56,10 @@ return (
      <ErrorMessage name="name" />
   <label className={s.label} htmlFor={NumberFieldId}>Number</label>
   <Field className={s.field} id={NumberFieldId} name="Number" placeholder="720-35-78"/>
-  {errors.email && touched.email ? (
+  {errors.number && touched.number ? (
      <div>{errors.email}</div>
     ) : null}
-    <ErrorMessage name="email" />
+    <ErrorMessage name="Number" />
   <button className={s.button} type="submit">Add contact</button>
   </Form>
        )}
