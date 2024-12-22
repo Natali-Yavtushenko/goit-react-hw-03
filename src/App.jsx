@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ContactForm from './components/ContactForm/ContactForm';
+import ContactForm from './components/ContactForm/ContactForm'
 import ContactList from './components/ContactList/ContactList';
 import SearchBox from './components/SearchBox/SearchBox'
 
