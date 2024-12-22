@@ -1,6 +1,6 @@
 import s from './ContactForm.module.css';
 import React from 'react';
-import {Formik, Field, Form } from 'formik';
+import {Formik, Field, Form, ErrorMessage } from 'formik';
 import {useId} from "react";
 import * as Yup from 'yup';
 
@@ -46,16 +46,26 @@ return (
     validationSchema={registerSchema}
     onSubmit={handleSubmit}
   >
+     {({ errors, touched }) => (
   <Form className={s.form}>
   <label className={s.label} htmlFor={NameFieldId}>Name</label>
   <Field className={s.field} id={NameFieldId} name="Name" placeholder="Anna"/>
+  {errors.name && touched.name ? (
+    <div>{errors.name}</div>
+     ) : null}
+     <ErrorMessage name="name" />
   <label className={s.label} htmlFor={NumberFieldId}>Number</label>
   <Field className={s.field} id={NumberFieldId} name="Number" placeholder="720-35-78"/>
+  {errors.email && touched.email ? (
+     <div>{errors.email}</div>
+    ) : null}
+    <ErrorMessage name="email" />
   <button className={s.button} type="submit">Add contact</button>
   </Form>
-</Formik>
-    </div>
-)
+       )}
+     </Formik>
+   </div>
+);
 }
 
 export default ContactForm;
