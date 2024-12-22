@@ -57,7 +57,7 @@ return (
   <label className={s.label} htmlFor={NumberFieldId}>Number</label>
   <Field className={s.field} id={NumberFieldId} name="Number" placeholder="720-35-78"/>
   {errors.number && touched.number ? (
-     <div>{errors.email}</div>
+     <div>{errors.number}</div>
     ) : null}
     <ErrorMessage name="Number" />
   <button className={s.button} type="submit">Add contact</button>
